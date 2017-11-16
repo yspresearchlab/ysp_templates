@@ -95,15 +95,14 @@ export default class Login extends Component {
             placeholder="用户名"
             required
             labelBefore={<Icon name="person" />}
-            
             onChange={this.userNameChangeHandler.bind(this)
             }
           />
           <Field
+            type="password"
             placeholder="用户名"
             required
-            labelBefore={<Icon name="home" />}
-            
+            labelBefore={<Icon name="home" />}  
             onChange={this.userNameChangeHandler.bind(this)
             }
           />

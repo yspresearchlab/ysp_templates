@@ -1,10 +1,8 @@
 {
   "name": "ysp_login_temps",
   "description": "login_temps",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "dependencies": {
-    "react-dom": "15.3.2",
-    "react": "15.3.2"
   },
   "devDependencies": {
     "react-scripts": "1.0.0"
