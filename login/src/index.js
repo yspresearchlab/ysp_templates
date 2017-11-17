@@ -20,25 +20,16 @@ const {
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    let content = { userName: 'ysp', pwd: '123456' };
     this.state = {
-      userName: content.userName,
-      pwd: content.pwd
+      remeberPWDStatus: false
     }
   }
 
   //记住密码
   savePWDValueChangeHandler(e) {
-    let currentTarget = e.currentTarget;
-    if (currentTarget.tagName.toLowerCase() === 'input') {
-      let handler = this.props.customHandler;
-      if (handler) {
-        handler({
-          eventType: 'savePWDStatus',
-          data: currentTarget.checked
-        });
-      }
-    }
+    this.setState({
+      remeberPWDStatus: this.state.remeberPWDStatus
+    });
   }
   //用户名
   userNameChangeHandler(e) {
@@ -84,9 +75,9 @@ export default class Login extends Component {
   render() {
     let content = {
       "savePWDStatus": true,
-      "userName": "z100000",
-      "pwd": "password",
-      "errorTip": "对不起，您的帐号闲置过久，请重新登陆！！"
+      "userName": "",
+      "pwd": "",
+      "errorTip": "对不起，您的帐号闲置过久,请重新登陆！！"
     }
     return (
       <Card>
@@ -100,7 +91,7 @@ export default class Login extends Component {
           />
           <Field
             type="password"
-            placeholder="用户名"
+            placeholder="密码"
             required
             labelBefore={<Icon name="home" />}  
             onChange={this.userNameChangeHandler.bind(this)
@@ -112,7 +103,7 @@ export default class Login extends Component {
           <List.Item
             title="记住密码"
 
-            after={<Switch checked={content && content.savePWDStatus} onValueChange={this.savePWDValueChangeHandler.bind(this)} />} />
+            after={<Switch checked={this.state.remeberPWDStatus} onValueChange={this.savePWDValueChangeHandler.bind(this)} />} />
         </List>
         {content && content.errorTip && <Title amStyle="alert" displayLevel="small">{content.errorTip}</Title>}
         <Button
