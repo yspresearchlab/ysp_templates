@@ -86,7 +86,7 @@ export default class Login extends Component {
       "savePWDStatus": true,
       "userName": "z100000",
       "pwd": "password",
-      "errorTip": "对不起，您的帐号闲置过久,服务器已经自动断开连接,请重新登陆！！"
+      "errorTip": "对不起，您的帐号闲置过久，请重新登陆！！"
     }
     return (
       <Card>
